@@ -57,11 +57,13 @@ app.post('/login', (req, res) => {
 /* ================= RUTAS MODULARES ================= */
 // Importamos las rutas
 const productosRoutes = require('./routes/productos.routes');
+const usuariosRoutes = require('./routes/usuarios.routes');
 // const categoriasRoutes = require('./routes/categorias.routes'); // Descomenta cuando los tengas listos
 // const alertasRoutes = require('./routes/alertas.routes');       // Descomenta cuando los tengas listos
 
 // Aplicamos las rutas con protección JWT donde sea necesario
 app.use('/productos', verificarToken, productosRoutes);
+app.use('/usuarios', usuariosRoutes);
 
 // Rutas públicas (ejemplo categorías si quieres que cualquiera las vea)
 app.get('/categorias', (req, res) => {
